@@ -30,14 +30,7 @@ router.get('/:idRaza',async(req,res)=>{
 
 
 router.post('/',async(req,res)=>{
-    const{
-        image,
-        name,
-        altura,
-        peso,
-        years,
-        temperament
-    }=req.body
+    const{image,name,altura,peso,years,temperament}=req.body
     //busco todos los nombres de las razas de mis perros en la BD
     const id= await Dog.findAll({attributes:['name']})
     const regexURL = /^(?:https?|ftp):\/\/(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[\w-./?%&=]*)?$/;
