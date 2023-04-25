@@ -1,32 +1,8 @@
   const axios= require('axios')
   const {Dog,Temperament}=require('../db')
-  const createTemp=require('../Controllers/createTemp')
   require('dotenv').config()
   const {API_KEY}=process.env
   const URL='https://api.thedogapi.com/v1/breeds?api_key='+API_KEY
-
-  const filtroTemp=[]
-
-  function temperement(temp){
-    for(let e of temp){
-        // filtro los temps para que no se repitan
-        if(!filtroTemp.includes(e)){
-            filtroTemp.push(e)
-        }
-        
-    }
-  }
-  //agrego todos los temperamentos a la BD
-  async function agregarTemps(){
-    const Temps= await Temperament.findAll()
-    if(Object.keys(Temps).length===0){
-    filtroTemp.forEach(async (element)=>{
-        await Temperament.create({
-            nombre: element
-            })
-        })
-    }
-  }
 
   async function allRazas(){
     //le pido los datos a la api con axios
@@ -43,7 +19,6 @@
         let obj3={};
         if(element.temperament){
             let temp= element.temperament.split(', ')
-            temperement(temp)
         obj={
             id: element.id,
             name:element.name,
@@ -66,7 +41,15 @@
     return obj3={...obj,...obj2};  
     })
     //buscamos a todos los perros de nuestra BD y creamos un array con esa data
-    const dogsBD= await Dog.findAll()
+    const dogsBD= await Dog.findAll({
+        include:{
+            model: Temperament,
+            attributes:['nombre'], //nombre del elemento de la tabla que quiero en mis datos
+            through:{
+                attributes: []
+            } //de mi tabla DogTemperament
+        }
+    })
     const perrosBD=dogsBD.map(element=>{
         return {
             id: element.id,
@@ -74,12 +57,12 @@
             altura: element.altura,
             peso: element.peso,
             years: element.years,
-            imagen: element.imagen
+            imagen: element.imagen,
+            temperament: element.Temperaments.map(e=>e.nombre)
         }
     })
     //juntamos los datos de la api y de la BD
     const allDataDB= [...objRazas, ...perrosBD]
-    await agregarTemps();
     return allDataDB;
   }
 

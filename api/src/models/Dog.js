@@ -5,10 +5,9 @@ module.exports = (db) => {
   // defino el modelo
   db.define('Dog', {
     id:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
     },
     imagen: {
       type: DataTypes.STRING,
@@ -19,6 +18,7 @@ module.exports = (db) => {
     },
     name:{
       type: DataTypes.STRING,
+      unique:true,
       allowNull:false,
     },
     altura:{
