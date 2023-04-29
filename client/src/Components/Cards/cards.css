@@ -1,0 +1,28 @@
+.allCards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cont-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap:20px;
+    max-width: 1325px;
+}
+.cont-pag{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+.currentPage{
+    background-color: skyblue;
+    padding: 5px;
+}
+
+.buttonPag{
+    cursor: pointer;
+}
