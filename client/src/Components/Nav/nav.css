@@ -37,7 +37,6 @@ img{
 .link-button{
     width: 100%;
     text-decoration: none;
-    /* background-color: red; */
     border-radius: 20px;
     color: skyblue;
     height: 100%;
@@ -50,7 +49,7 @@ img{
     white-space: nowrap;
     /* overflow: hidden; */
 }
-button{
+.buttonNav{
     padding: 10px 1rem;
     /* border-color: skyblue; */
     display: flex;

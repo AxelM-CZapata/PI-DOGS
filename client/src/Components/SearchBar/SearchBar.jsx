@@ -4,7 +4,7 @@ export default function SearchBar(){
     return(
         <div className="cont-Search">
             <input placeholder="Búsqueda de razas" className="inputSearch"></input>
-            <button className="buttonSearch">Buscar</button>
+            <button className="buttonSearch buttonNav">Buscar</button>
         </div>
     )
 }
