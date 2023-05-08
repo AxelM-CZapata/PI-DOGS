@@ -25,7 +25,6 @@ export default function Paginado({slice,character}){
     }
     return(
         <>
-<<<<<<< HEAD
         <div className="cont-paginate">
            <button disabled={paginate===1} className="buttonPag" value={paginate} onClick={(event)=>dispatch(paginacion(event,"prev"))}>Atrás</button>
            {
@@ -45,27 +44,6 @@ export default function Paginado({slice,character}){
             {siguiente}              
        </div>
    </>
-=======
-             <div className="cont-paginate">
-                <button disabled={paginate===1} className="buttonPag" value={paginate} onClick={(event)=>dispatch(paginacion(event,"prev"))}>Atrás</button>
-                {
-                    pages.map((p) =>(   
-                        <button
-                            key={p}
-                            className={paginate === p?'current-Page':'numPage'}
-                            onClick={() => {
-                                dispatch(setPage(p));
-                                window.scrollTo(0,0);
-                            }}
-                        >
-                            {p}
-                        </button>
-                    ))
-                }
-                 {siguiente}              
-            </div>
-        </>
->>>>>>> 3d1be272926db15a6e6f961e6e863081419db90c
     )
 }
 

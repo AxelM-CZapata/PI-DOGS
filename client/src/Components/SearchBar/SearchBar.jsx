@@ -30,21 +30,16 @@ export default function SearchBar(){
     }
     return(
         <div className="cont-Search">
-<<<<<<< HEAD
             <div className="input-button">
                <input onChange={handlerSearch} onKeyDown={buscar} value={search} placeholder="Búsqueda de razas" className="inputSearch"></input>        
                 <button onClick={buscar} className="buttonSearch buttonNav">Buscar</button>  
+                </div>
+                <div className="select-option">
+                {search && searchFilter.length?<select onClick={(event)=>{setSearch(event.target.value)}}>
+                    {searchFilter.map(e=><option  key={e.name} value={e.name}>{e.name}</option>)}
+                </select>:
+                null}
             </div>
-            <div className="select-option">
-            {search && searchFilter.length?<select onClick={(event)=>{setSearch(event.target.value)}}>
-                {searchFilter.map(e=><option  key={e.name} value={e.name}>{e.name}</option>)}
-            </select>:
-            null}
-            </div>
-=======
-            <input placeholder="Búsqueda de razas" className="inputSearch"></input>
-            <button className="buttonSearch buttonNav">Buscar</button>
->>>>>>> 3d1be272926db15a6e6f961e6e863081419db90c
         </div>
     )
 }
