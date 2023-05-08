@@ -17,7 +17,7 @@ export default function Card({id,name,altura,peso,years,imagen,temperaments}){
                         years[1]?<p>En promedio vive entre {years[0]} y {years[1]} años</p>:
                         <p>En promedio vive {years} años</p>
                     }
-                    <p>Esta raza tiene las caracteristicas de ser muy: {temperaments?.join(', ')}</p>
+                   {!temperaments?null:temperaments.length===0? null: <p>Esta raza tiene las caracteristicas de ser muy: {temperaments?.join(', ')}</p> }
                     </div>
                 </div>
             </div>

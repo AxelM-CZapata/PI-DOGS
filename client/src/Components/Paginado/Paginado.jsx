@@ -25,25 +25,25 @@ export default function Paginado({slice,character}){
     }
     return(
         <>
-             <div className="cont-pag">
-                <button className="buttonPag" value={paginate} onClick={(event)=>dispatch(paginacion(event,"prev"))}>Atrás</button>
-                {
-                    pages.map((p) =>(
-                        <button
-                            key={p}
-                            className={paginate === p?'currentPage':'numPage'}
-                            onClick={() => {
-                                dispatch(setPage(p));
-                                window.scrollTo(0,0)
-                            }}
-                        >
-                            {p}
-                        </button>
-                    ))
-                }
-                 {siguiente}              
-            </div>
-        </>
+        <div className="cont-paginate">
+           <button disabled={paginate===1} className="buttonPag" value={paginate} onClick={(event)=>dispatch(paginacion(event,"prev"))}>Atrás</button>
+           {
+               pages.map((p) =>(   
+                   <button
+                       key={p}
+                       className={paginate === p?'current-Page':'numPage'}
+                       onClick={() => {
+                           dispatch(setPage(p));
+                           window.scrollTo(0,0);
+                       }}
+                   >
+                       {p}
+                   </button>
+               ))
+           }
+            {siguiente}              
+       </div>
+   </>
     )
 }
 

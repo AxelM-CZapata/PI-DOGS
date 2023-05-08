@@ -1,30 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "../Card/Card";
-import axios from 'axios'
 import Paginado from "../Paginado/Paginado";
+import Filtraciones from "../Filtraciones/Filtraciones";
+import { setCharacter,setTemperamentos,errores } from "../../Redux/actions";
+import { Link,useNavigate } from "react-router-dom";
 import './cards.css'
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 export default function Cards(){
-    const URL="http://localhost:3001/dogs"
-    const [character,setCharacters]=useState([]);
-    const {paginate}=useSelector(state=>state)
+    const {paginate,characters,error,copyChar}=useSelector(state=>state)
+    const dispatch=useDispatch();
     useEffect(()=>{
-        axios.get(URL)
-        .then(({data})=>{ 
-            setCharacters([...data])
-        })
-        .catch(error=>console.log(error))
-    },[])
+        if(!copyChar.length){
+        dispatch(setCharacter())
+        dispatch(setTemperamentos())}
+    },[characters,dispatch,copyChar])
+    const navigate=useNavigate()
     let next=paginate*8;
     let prev=next-8;
-    const slice= character.slice(prev,next);    
+    const slice= characters.slice(prev,next);    
+    
     return(
         <div className="allCards">
-            <h1>Estoy en cards</h1>
-            {!character.length?<h2>Cargando....</h2>:
+            <Filtraciones></Filtraciones>
+            {!characters.length && !copyChar.length?<h2>Cargando....</h2>:
+            error? (
+                <div>
+                    <h1>{error}</h1>
+                    <button onClick={()=>dispatch(errores(null))}>Volver a home</button>
+                </div>
+                )
+            : !characters.length && copyChar.length?
+                <div>
+                    <img alt='Chems-not-found' src="https://media.tenor.com/cveog101xMsAAAAi/doge-headphones.gif"></img>
+                    <h1>No hay perros creados por el usuario :C, de click para agregar uno! &#8595; &#8595; &#8595;</h1>
+                    <button onClick={(event)=>{event.preventDefault(); navigate('/create')}}>¡Agregar perros!</button>
+                </div>
+            :
             <div className="cont-card">
                 {slice.map(e=>
-                   <Card
+                 <Link key={e.id} to={'/detail/'+e.id}>
+                    <Card
                     key={e.id}
                     id={e.id}
                     imagen={e.image}
@@ -33,11 +48,12 @@ export default function Cards(){
                     peso={e.weight}
                     years={e.years}
                     temperaments={e.temperament}/>
+                 </Link>
                             )
                 }
             </div>
             }
-            <Paginado slice={slice} character={character}></Paginado>
+            <Paginado slice={slice} character={characters}></Paginado>
         </div>
     )
 }

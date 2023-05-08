@@ -1,12 +1,12 @@
 const {Dog,Temperament}=require('../db')
 
-async function createDog( imagen,name,altura,peso,years,temperament){
+async function createDog( imagen,name,height,weight,years,temperament){
 
     const newDog= await Dog.create({
     imagen,
     name,
-    altura,
-    peso,
+    height,
+    weight,
     years,
     })
     // console.log("Array de temperament",temperament)

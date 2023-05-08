@@ -50,7 +50,7 @@ img{
     white-space: nowrap;
     /* overflow: hidden; */
 }
-button{
+.buttonNav{
     padding: 10px 1rem;
     /* border-color: skyblue; */
     display: flex;

@@ -3,58 +3,83 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    height: 92.5%;
 }
-.form-container {
-    width: 100%;
-    background: linear-gradient(180deg,rgb(0, 183, 255) 25%,rgb(255, 255, 255) 20%);
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  
+   .form-container, label, input, button {
+    color: #87CEEB;
+  }
+  .form-container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    background-color: teal;
+    max-width: 500px;
   }
   
   .form {
-    width: 80%;
     display: flex;
     flex-direction: column;
-    margin-top: 350px;
   }
   
-  .form-container p {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    font-size: 30px;
-    font-weight: 900;
-    color: rgb(255, 255, 255);
+  .input {
+    margin: 5px 0;
+    padding: 6px;
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   }
   
-  .form-container label {
-    color: rgb(40, 42, 44);
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 15px;
+  select {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   }
   
-  .form-container .input {
+  .formulario-submit, .formulario-submit-disabled,.opc-temp{
+    /* margin-top: 20px; */
     padding: 10px;
-    height: 35px;
+    border-radius: 5px;
     border: none;
-    background-color: rgb(224, 231, 236);
+    background-color: #87CEEB;
+    color: #fff;
+    cursor: pointer;
+  }
+  .formulario-submit-disabled{
+    cursor: unset;
   }
   
-  .form-container .input:focus {
-    outline: none;
+  .formulario-submit:hover,.opc-temp:hover {
+    background-color: #1E90FF;
   }
-  
-  .form-container button {
+
+  .cont-temps{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px
+  }
+
+  .error{
+    color: red;
+  }
+
+  .button-res, .button-res-ok{
+    background-color: #1aae6f;
     border: none;
-    height: 35px;
-    margin-top: 30px;
-    background-color: rgb(0, 183, 255);
-    color: white;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
-  
+  .button-res{
+    background-color: red !important;
+  }

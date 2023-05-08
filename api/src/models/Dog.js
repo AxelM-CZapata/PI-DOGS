@@ -10,7 +10,7 @@ module.exports = (db) => {
       primaryKey: true,
     },
     imagen: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2048),
       allowNull: false,
       validate:{
         isUrl: true
@@ -21,11 +21,11 @@ module.exports = (db) => {
       unique:true,
       allowNull:false,
     },
-    altura:{
+    height:{
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
-    peso:{
+    weight:{
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },

@@ -55,8 +55,8 @@
         return {
             id: element.id,
             name: element.name,
-            height: element.altura,
-            weight: element.peso,
+            height: element.height,
+            weight: element.weight,
             years: element.years,
             image: element.imagen,
             temperament: element.Temperaments.map(e=>e.nombre)
