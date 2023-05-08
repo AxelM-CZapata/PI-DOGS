@@ -1,4 +1,5 @@
 .numPage{
+<<<<<<< HEAD
     color: skyblue;
     cursor: pointer;
     padding: 0.8em 1.2em;
@@ -37,3 +38,43 @@
         border-right: none ;
     
     }
+=======
+color: skyblue;
+cursor: pointer;
+padding: 0.8em 1.2em;
+background-color: transparent;
+border: none;
+font-size: 14px;
+}
+.cont-paginate{
+    margin-top: 40px;
+    background-color: #014542;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px skyblue solid;
+    border-radius: 8px
+}
+.current-Page{
+    border: none;
+    /* border:solid; */
+    border: 1px  skyblue solid;
+    padding: 0.8em 1.2em;
+    color: skyblue;
+    background-color: transparent;
+}
+.buttonPag{
+    font-size: 14px;
+background-color: transparent;
+border: none;
+border-left: none;
+padding: 0.8em 1.3em;
+color: skyblue;
+margin: 0;
+}
+
+.atras{
+    border-right: none ;
+
+}
+>>>>>>> 3d1be272926db15a6e6f961e6e863081419db90c
