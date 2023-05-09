@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./descarga.png');
   background-repeat: round;
+  animation: backgroundMove 120s linear infinite;
 }
 
 code {
