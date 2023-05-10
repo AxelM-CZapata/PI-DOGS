@@ -26,3 +26,41 @@
 .buttonPag{
     cursor: pointer;
 }
+
+.errores{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3em;
+    align-items: center;
+    justify-content: center;
+    color: skyblue;
+}
+
+.title-error{
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 2em;
+}
+
+.button-home {
+    background-color: #014542;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: skyblue;
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #2c9caf;
+    cursor: pointer;
+  }
+  .img-error{
+    width: 30%;
+  }

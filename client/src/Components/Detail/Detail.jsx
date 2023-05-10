@@ -25,7 +25,12 @@ export default function Detail(){
 
     return(
         <div className="contenedor-detail">
-        {  error?<h1>{error}</h1>:
+        {  error?
+        <div className="cont-error">
+            <h1 className="error-detail">{error}</h1>
+            <button className="button-home" onClick={()=>navigate('/home')}>Volver a home</button>
+        </div>
+        :
             detail.map(e=>{
                 return(
                 <div className="border-detail" key={e.id}>
@@ -38,7 +43,7 @@ export default function Detail(){
                             <div className="info2">
                                 {isNaN(Number(id))?
                                     <div className="eliminar">
-                                    <button onClick={()=>handlerDelete(e.id)}>Eliminar raza del usuario</button>
+                                    <button className="button-delete" onClick={()=>handlerDelete(e.id)}>Eliminar raza del usuario</button>
                                 </div>:null}
                                 <div className="encabezado">
                                     <h1>Raza de perro:</h1>
@@ -53,9 +58,7 @@ export default function Detail(){
                                 {e.temperament?<p>Este perro tiene los siguientes temperamentos: {e.temperament.join(', ')}</p>:null}
                             </div>
                         </div>
-                    </div>
-                    
-                    
+                    </div>                  
                 </div>)  
             })
         }

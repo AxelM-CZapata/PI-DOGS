@@ -7,8 +7,7 @@ import {Routes,Route,useLocation} from 'react-router-dom'
 import Landing from './Components/Landing/Landing';
 function App() {
   const location=useLocation();
-  return (
-
+  return (  
     <div className="App">
       {location.pathname!=='/'&& <Nav/>}
       <Routes>

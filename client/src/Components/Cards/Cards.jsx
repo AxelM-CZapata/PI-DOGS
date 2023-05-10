@@ -24,16 +24,17 @@ export default function Cards(){
             <Filtraciones></Filtraciones>
             {!characters.length && !copyChar.length?<h2>Cargando....</h2>:
             error? (
-                <div>
-                    <h1>{error}</h1>
-                    <button onClick={()=>dispatch(errores(null))}>Volver a home</button>
+                <div className="errores">
+                    <h1 className="title-error">{error}</h1>
+                    <img className="img-error" src="https://media.tenor.com/dqH6ZBgOvMUAAAAi/dog-dance.gif" alt="dog-dancing" />
+                    <button className="button-home" onClick={()=>dispatch(errores(null))}>Volver a home</button>
                 </div>
                 )
             : !characters.length && copyChar.length?
-                <div>
-                    <img alt='Chems-not-found' src="https://media.tenor.com/cveog101xMsAAAAi/doge-headphones.gif"></img>
-                    <h1>No hay perros creados por el usuario :C, de click para agregar uno! &#8595; &#8595; &#8595;</h1>
-                    <button onClick={(event)=>{event.preventDefault(); navigate('/create')}}>¡Agregar perros!</button>
+                <div className="errores">
+                    <img className="img-error" alt='Chems-not-found' src="https://media.tenor.com/cveog101xMsAAAAi/doge-headphones.gif"></img>
+                    <h1 className="title-error">No hay perros creados por el usuario :C, de click para agregar uno!</h1>
+                    <button className="button-home" onClick={(event)=>{event.preventDefault(); navigate('/create')}}>¡Agregar perros!</button>
                 </div>
             :
             <div className="cont-card">

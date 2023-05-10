@@ -7,10 +7,10 @@ export default function Paginado({slice,character}){
     const {paginate}=useSelector(state=>state)
     const dispatch=useDispatch();
     const allPage=Math.ceil(character.length/8)
-    const [pages, setPages] = useState([1,2,3,4]);
+    const [pages, setPages] = useState([]);
     useEffect(() => {
         const array = Array.from({ length: allPage }, (_, i) => i+1);
-        const chunkSize = 4;
+        const chunkSize = 5;
         for (let i = 0; i < array.length; i += chunkSize) {
             const chunk = array.slice(i, i + chunkSize);
             if (chunk.includes(paginate)) {

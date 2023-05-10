@@ -10,16 +10,20 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
       rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
   }
+
+  a{
+    text-decoration: none;
+  }
   
   .card {
-    position: absolute;
+    position: relative;
     width: 95%;
     height: 95%;
     background: #000814;
     border-radius: 20px;
     z-index: 5;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
@@ -80,8 +84,8 @@
     width: 40%;
     height: 150%;
     background: #40E0D0;
-    background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
-    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    background: -webkit-linear-gradient(to right, #19d178,#ffffff , #40E0D0);
+    background: linear-gradient(to right, #19d178, #ffffff, #40E0D0);
     transform-origin: center;
     animation: glowing_401 5s linear infinite;
   }

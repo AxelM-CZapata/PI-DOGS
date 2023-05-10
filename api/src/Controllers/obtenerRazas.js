@@ -3,7 +3,6 @@
   require('dotenv').config()
   const {API_KEY}=process.env
   const URL='https://api.thedogapi.com/v1/breeds?api_key='+API_KEY
-//   const URL2='https://api.thedogapi.com/v1/breeds/';
 
   async function allRazas(){
     //le pido los datos a la api con axios
@@ -62,23 +61,6 @@
             temperament: element.Temperaments.map(e=>e.nombre)
         }
     })
-    //Aqui buscamos al resto de razas que no vienen incluidas en el primer URL
-    // const veryDogs=[]
-    
-    // for(let i=1; i<=50; i++){
-    //     const doggi=await axios.get(URL2+i+'?api_key=live_qzeX0RbvN86K9v1IBZI8v2U9kcVzjmqMayIA8dVUDATGF5G47C3xgruaNkeCNXVx')
-    //     veryDogs.push(doggi.data)
-    // }
-    // const filtro=[]
-    // let x=0;
-    // for(let i=0; i<veryDogs.length;i++){
-    //     let largo=filtro.length;
-    //     if(veryDogs[i].id!==objRazas[x].id){
-    //         filtro.push(veryDogs[i].id);
-    //     }
-    //     if(largo===filtro.length)
-    //     x++;
-    // }
 
     //juntamos los datos de la api y de la BD
     const allDataDB= [...objRazas, ...perrosBD] 
